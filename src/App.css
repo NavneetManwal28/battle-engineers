@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body,#root{width:100%;height:100dvh;overflow:hidden;font-family:'Nunito',system-ui,sans-serif;background:#1a1a1e;overscroll-behavior:none;touch-action:none;}
+
+.screen{width:100vw;height:100dvh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.metal-bg{position:fixed;inset:0;z-index:0;background:#1e1e22;}
+.metal-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 30%,rgba(124,252,0,0.02),transparent 60%),radial-gradient(ellipse at 60% 70%,rgba(100,200,0,0.015),transparent 50%);}
+
+/* ─── Neumorphic Panel ─── */
+.metal-panel{background:#222228;border-radius:8px;box-shadow:6px 6px 16px rgba(0,0,0,0.6),-3px -3px 10px rgba(60,60,68,0.15),inset 0 1px 0 rgba(255,255,255,0.03);border:1px solid #2a2a30;}
+.panel-inset{background:#1a1a1e;border-radius:6px;box-shadow:inset 3px 3px 8px rgba(0,0,0,0.5),inset -2px -2px 6px rgba(60,60,68,0.08);border:1px solid #161618;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes crownBounce{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-16px) rotate(-5deg)}75%{transform:translateY(-16px) rotate(5deg)}}
+
+/* ─── Neumorphic Buttons ─── */
+.btn-neu{
+  background:linear-gradient(145deg,#2a2a30,#1e1e24);border:1px solid #333338;border-radius:6px;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.5),-2px -2px 8px rgba(60,60,68,0.1);
+  color:#999;cursor:pointer;font-weight:700;transition:all 0.1s;
+}
+.btn-neu:hover:not(:disabled){box-shadow:2px 2px 6px rgba(0,0,0,0.5),-1px -1px 4px rgba(60,60,68,0.1);color:#ccc;}
+.btn-neu:active:not(:disabled){box-shadow:inset 2px 2px 6px rgba(0,0,0,0.5),inset -1px -1px 4px rgba(60,60,68,0.08);color:#7cfc00;}
+.btn-neu:disabled{opacity:0.3;cursor:not-allowed;}
+.btn-neu.active{box-shadow:inset 2px 2px 6px rgba(0,0,0,0.5),inset -1px -1px 4px rgba(60,60,68,0.08);color:#7cfc00;border-color:#7cfc0030;}
+
+.fire-btn{
+  background:linear-gradient(145deg,#3a1a1a,#2a0a0a)!important;border:2px solid #661a00!important;
+  box-shadow:6px 6px 14px rgba(0,0,0,0.6),-3px -3px 8px rgba(80,30,20,0.15),inset 0 1px 0 rgba(255,100,50,0.1)!important;
+  color:#ff4400!important;transition:all 0.1s;
+}
+.fire-btn:hover:not(:disabled){box-shadow:4px 4px 8px rgba(0,0,0,0.5),-2px -2px 6px rgba(80,30,20,0.2),0 0 20px rgba(255,60,0,0.15)!important;color:#ff6622!important;}
+.fire-btn:active:not(:disabled){box-shadow:inset 3px 3px 8px rgba(0,0,0,0.6),inset -2px -2px 6px rgba(80,30,20,0.1)!important;color:#ff8844!important;}
+
+/* ─── Green Glowing Slider ─── */
+input[type="range"]{-webkit-appearance:none;height:10px;border-radius:5px;background:#111114;outline:none;border:1px solid #2a2a30;box-shadow:inset 2px 2px 5px rgba(0,0,0,0.5),inset -1px -1px 3px rgba(60,60,68,0.08);touch-action:none;-webkit-touch-callout:none;}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:20px;height:20px;border-radius:50%;cursor:pointer;
+  background:linear-gradient(145deg,#444,#2a2a2e);border:2px solid #555;
+  box-shadow:3px 3px 8px rgba(0,0,0,0.5),-2px -2px 6px rgba(80,80,88,0.1),0 0 8px rgba(124,252,0,0.2);
+}
+input[type="range"].slider-green{accent-color:#7cfc00;}
+input[type="range"].slider-amber{accent-color:#f59e0b;}
+
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:2px}
+
+/* ─── Mobile Support ─── */
+@media(max-width:768px){
+  input[type="range"]{height:14px;}
+  input[type="range"]::-webkit-slider-thumb{width:26px;height:26px;}
+  .btn-neu{min-height:36px;min-width:36px;font-size:14px!important;}
+}
+@media(max-height:450px){
+  input[type="range"]::-webkit-slider-thumb{width:22px;height:22px;}
+}
+@media(max-width:480px){
+  input[type="range"]::-webkit-slider-thumb{width:30px;height:30px;}
+}
+/* Portrait handled by JS in App.jsx */
